@@ -1,0 +1,36 @@
+{
+  "name": "full-stack-app",
+  "version": "1.0.0",
+  "description": "This a javascript, react with mongoDb fullstack app",
+  "main": "index.js",
+  "scripts": {
+    "test": "tsc -v",
+    "dev:server": "tsnd src/server/server.ts",
+    "dev:bundler": "webpack -w --mode=development"
+  },
+  "author": "Tenaw",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.7",
+    "cors": "^2.8.5",
+    "D": "^1.0.0",
+    "ejs": "^3.1.10",
+    "express": "^4.21.0",
+    "mongodb": "^6.9.0",
+    "nodemon": "^3.1.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "webpack": "^5.94.0",
+    "webpack-cli": "^5.1.4"
+  },
+  "devDependencies": {
+    "@typescript-eslint/parser": "^8.8.1",
+    "eslint": "^9.11.1",
+    "eslint-plugin-react": "^7.37.1",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "prettier": "^3.3.3",
+    "ts-loader": "^9.5.1",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.6.3"
+  }
+}

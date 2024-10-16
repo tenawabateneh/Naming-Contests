@@ -1,0 +1,11 @@
+I am thrilled to do these Commands in the fullstack Dev Coding:
+
+
+
+npm run dev:server			- To run the node server
+
+npx tsnd src/dev/load-test-data.ts	- To run and import test data in to the mongoDB server
+
+docker-compose up			- To run mongoDB from docker
+
+npm run dev:bundler    			- To build and run the bundle 
