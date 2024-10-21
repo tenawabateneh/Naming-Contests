@@ -6,15 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Naming Contests</title>
+
+    <script>
+        window.initionalData = <%- JSON.stringify(initionalData) -%>
+    </script>
 </head>
 
 <body>
-    <h2> Hello & Welcome to EJS </h2>
-    <%= Math.random() -%>
-        <%= initialContent -%>
-            <div id="app"><%- initialContent -%></div>
+    <div id="app"><%- initionalMarkup -%></div>
 
-            <script src="main.js"></script>
+    <script src="main.js"></script>
 </body>
 
 </html>

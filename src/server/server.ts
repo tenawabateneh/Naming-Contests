@@ -5,6 +5,7 @@ import configData from './config'
 console.log(configData);
 
 import apiRouter from './api-router'
+import ServerSideRendering from './render';
 
 const server = express()
 
@@ -15,9 +16,13 @@ server.set("view engine", "ejs")
 
 server.use("/api", apiRouter)
 
-server.use('/', (req, res) => {
+server.get('/', async (req, res) => {
+
+    const { initionalMarkup, initionalData } = await ServerSideRendering()
+
     res.render("index", {
-        initialContent: "<h2>Loading ... </h2>",
+        initionalMarkup,
+        initionalData,
     })
 })
 

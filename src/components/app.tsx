@@ -3,34 +3,20 @@ import { useState, useEffect } from "react"
 import Header from './header'
 import ContestList from "./contest-list";
 
-const App = ({ initialContent }) => {
+const App = ({ initialContents }) => {
     const [counter, setCounter] = useState(0);
-    const [content, setContent] = useState([initialContent]);
-
-
-
-    console.log("MyContent:", initialContent)
-    useEffect(() => {
-        //     const intervalID = setInterval(() => {
-        //         setCounter(counter + 1)
-        //     }, 1000)
-        //     return () => {
-        //         clearInterval(intervalID)
-        //     }
-    }, [initialContent]);
 
     return (
         <div className="container" >
-            <div>Hello React</div>
             <Header headerMessage={"Naming Contests"} />
 
-            <ContestList contests={initialContent.contests} />
+            <ContestList initialContents={initialContents.contests} />
 
             <button onClick={() => {
                 setCounter(counter + 1);
             }}
             >
-                {counter}
+                Let' s Add Something {counter}
             </button>
         </div>
     );
