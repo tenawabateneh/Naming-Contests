@@ -1,16 +1,17 @@
 
 import React, { useState, useEffect } from 'react';
 
+import Header from './header';
 import ContestPreview from './contest-preview';
-import fetchContests from '../api-client';
+import { fetchContestList } from '../api-client';
 
-const ContestList = ({ initialContents = [] }) => {  // Destructure and set a default empty array
+const ContestList = ({ initialContents = [], onContestPreviewClicked }) => {  // Destructure and set a default empty array
     const [contents, setContents] = useState(initialContents);  // State to hold contest list
 
     useEffect(() => {
         // debugger;
         // // Fetch contests data from the API server and rendering to the Javascript( But what happen if there's no Javascript)
-        // fetchContests().then((contests) => {
+        // fetchContestList().then((contests) => {
         //     console.log(contests);
 
         //     // Ensure that response data is an array before setting it to state
@@ -26,15 +27,18 @@ const ContestList = ({ initialContents = [] }) => {  // Destructure and set a de
     }, []);  // Empty dependency array ensures this runs only once on component mount
 
     return (
-        <div className="contest-list">
-            {contents.length > 0 ? (
-                contents.map(contest => (
-                    <ContestPreview key={contest.id} contest={contest} />
-                ))
-            ) : (
-                <p>No contests available</p>  // Handle case where there are no contests
-            )}
-        </div>
+        <>
+            <Header headerMessage={"Naming Contests"} />
+            <div className="contest-list">
+                {contents.length > 0 ? (
+                    contents.map(contest => (
+                        <ContestPreview key={contest.id} contest={contest} onContestPreviewClicked onClick={onContestPreviewClicked} />
+                    ))
+                ) : (
+                    <p>No contests available</p>  // Handle case where there are no contests
+                )}
+            </div>
+        </>
     );
 };
 

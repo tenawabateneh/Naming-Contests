@@ -17,6 +17,7 @@ router.get("/contests", async (req, res) => {
             id: 1,
             categoryName: 1,
             contestName: 1,
+            description: 1,
             _id: 0,
         })
         .toArray();
