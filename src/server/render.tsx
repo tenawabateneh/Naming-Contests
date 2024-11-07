@@ -1,14 +1,19 @@
 import ReactDOMServer from 'react-dom/server'
 
-import { fetchContestList } from '../api-client'
+import { fetchContest, fetchContestList } from '../api-client'
 import App from '../components/app'
 
-const ServerSideRendering = async () => {
+const ServerSideRendering = async (req) => {
 
-    const contests = await fetchContestList()
+    const { contestId } = req.params;
 
-    const initionalMarkup = ReactDOMServer.renderToString(<App initialContents={{ contests }} />)
-    return { initionalMarkup, initionalData: { contests } }
+    // make different initioalData based on if there is a contestId or not 
+    const initionalData = contestId
+        ? { currentContest: await fetchContest(contestId) }
+        : { contests: await fetchContestList() }
+
+    const initionalMarkup = ReactDOMServer.renderToString(<App initialData={initionalData} />)
+    return { initionalMarkup, initionalData }
 }
 
 export default ServerSideRendering

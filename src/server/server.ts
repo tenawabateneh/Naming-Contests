@@ -16,9 +16,9 @@ server.set("view engine", "ejs")
 
 server.use("/api", apiRouter)
 
-server.get('/', async (req, res) => {
+server.get(['/', "/contest/:contestId"], async (req, res) => {
 
-    const { initionalMarkup, initionalData } = await ServerSideRendering()
+    const { initionalMarkup, initionalData } = await ServerSideRendering(req)
 
     res.render("index", {
         initionalMarkup,
